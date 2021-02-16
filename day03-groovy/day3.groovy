@@ -27,13 +27,13 @@ def finalResult = (long)r1 * r2 * r3 * r4 * r5
 println "---------------------------------"
 println "Result2 $finalResult"
 
-def count(rigth, down, lines, lineSize) {
+def count(right, down, lines, lineSize) {
     def number = 0;
     def incrementIndex = 0;
 
     for (def i = 0; i < lines.size(); i += down)
     {
-        def y = incrementIndex * rigth;
+        def y = incrementIndex * right;
 
         if (lines[i][y % lineSize] == '#')
             number++;
