@@ -13,7 +13,7 @@ type Action struct {
     value int
 }
 
-func mouve(operations []Action) {
+func move(operations []Action) {
     currentPositionX := 0
     currentPositionY := 0
 
@@ -52,7 +52,7 @@ func mouve(operations []Action) {
     fmt.Printf("x: %d, y: %d, result: %d", currentPositionX, currentPositionY, int(math.Abs(float64(currentPositionX)) + math.Abs(float64(currentPositionY))))
 }
 
-func mouve2(operations []Action) {
+func move2(operations []Action) {
     currentPositionX := 0
     currentPositionY := 0
 
@@ -106,5 +106,5 @@ func main() {
         actions = append(actions, Action { line[0:1], value})
     }
 
-    mouve2(actions)
+    move2(actions)
 }
