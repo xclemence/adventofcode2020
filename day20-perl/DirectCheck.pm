@@ -17,8 +17,8 @@ sub new {
 
 sub is_valid {
    my ($self, $image) = @_;
-   my @condidate_border = $self->{provider}($image);
-   return @condidate_border ~~ @{$self->{border}};
+   my @candidate_border = $self->{provider}($image);
+   return @candidate_border ~~ @{$self->{border}};
 }
 
 1;

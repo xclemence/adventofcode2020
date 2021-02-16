@@ -72,10 +72,10 @@ sub get_border {
 }
 
 sub check_border {
-   my ($self, @border_condidate) = @_;
+   my ($self, @border_candidate) = @_;
    my @border = $self->get_border();
 
-   return @border ~~ @border_condidate;
+   return @border ~~ @border_candidate;
 }
 
 sub get_rotate_parameter {
@@ -90,13 +90,9 @@ sub get_rotate_parameter {
    my $rotate_order = $target_index - $position_index;
 
    my $test =  $self->{position};
-   # print "posgtion  $test, $target\n";
-   # print "rotation $position_index, $target_index, $rotate_order\n";
 
    $rotate_order = $position_index - 4 if($rotate_order > 1);
    $rotate_order = $position_index + 4 if($rotate_order < -1);
-
-   # print "rotate order = $rotate_order, $target_index, $position_index\n";
 
    return $rotate_order > 1;
 }

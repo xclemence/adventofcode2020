@@ -75,36 +75,36 @@ sub right_border() {
    return Utils::right_border(@{$self->{data}});
 }
 
-sub top_condidate {
+sub top_candidate {
    my ($self) = @_;
    my @top = $self->top_border();
    return [[@top], [reverse @top]];
 }
 
-sub bottom_condidate {
+sub bottom_candidate {
    my ($self) = @_;
    my @bottom = $self->bottom_border();
    return [[@bottom], [reverse @bottom]];
 }
 
-sub right_condidate {
+sub right_candidate {
    my ($self) = @_;
    my @right = $self->right_border();
    return [[@right], [reverse @right]];
 }
 
-sub left_condidate {
+sub left_candidate {
    my ($self) = @_;
    my @left = $self->left_border();
    return [[@left], [reverse @left]];
 }
 
 sub _has_neighbour {
-   my ($values, @condidate) = @_;
+   my ($values, @candidate) = @_;
 
    foreach (@{$values}) {
       my $current = $_;
-      my @found = grep{ @{$_} ~~ @{$current} } @condidate;
+      my @found = grep{ @{$_} ~~ @{$current} } @candidate;
       my $found_size = scalar @found;
       if ($found_size ne 0) {
          return 1
@@ -125,19 +125,19 @@ sub neighbour_number {
 
    my @other_all_border = (@tops, @bottoms, @lefts, @rights);
 
-   if(_has_neighbour($self->top_condidate(),  @other_all_border)) {
+   if(_has_neighbour($self->top_candidate(),  @other_all_border)) {
       $neighbour += 1;
    }
 
-   if(_has_neighbour($self->bottom_condidate(), @other_all_border)) {
+   if(_has_neighbour($self->bottom_candidate(), @other_all_border)) {
       $neighbour += 1;
    }
 
-   if(_has_neighbour($self->left_condidate(), @other_all_border)) {
+   if(_has_neighbour($self->left_candidate(), @other_all_border)) {
       $neighbour += 1;
    }
 
-   if(_has_neighbour($self->right_condidate(), @other_all_border)) {
+   if(_has_neighbour($self->right_candidate(), @other_all_border)) {
       $neighbour += 1;
    }
 

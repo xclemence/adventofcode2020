@@ -36,11 +36,11 @@ sub get_corresponding_images_with_check {
 
    my @local_border = @{$border};
 
-   my @images_condidates = get_corresponding_images($target, $images, @local_border);
+   my @images_candidates = get_corresponding_images($target, $images, @local_border);
 
-   my $number = scalar @images_condidates;
+   my $number = scalar @images_candidates;
 
-   for (@images_condidates) {
+   for (@images_candidates) {
       if (satisfy_checks($_, @addintional_check)) {
          return $_;
       }
