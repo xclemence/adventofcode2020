@@ -4,7 +4,7 @@ import "dart:async";
 import 'analyse.dart';
 
 Future main() async {
-  final file = new File('data/test2');
+  final file = new File('data/data');
   final lines = await file.readAsLines();
   final item = analyseInput(lines);
 

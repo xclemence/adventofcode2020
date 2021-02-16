@@ -24,7 +24,7 @@ class RecursePattern {
     return "(${pattern})";
   }
 
-  int minLenght(int level) => leftRule.minLenght() * level + rightRule.minLenght() * level;
+  int minLength(int level) => leftRule.minLength() * level + rightRule.minLength() * level;
 
   String recursePattern() => "(${leftRule.matchPattern.pattern}){2,}(${rightRule.matchPattern.pattern}){2,}";
 }
@@ -57,7 +57,7 @@ abstract class Rule {
 
   RulePattern computePattern();
 
-  int minLenght();
+  int minLength();
 
   bool isValid(String message) {
     final regExp = new RegExp('^${matchPattern.pattern}\$');
@@ -81,7 +81,7 @@ abstract class Rule {
     var recurseLevel = 2;
 
     final toReplace = "(?<${pattern.itemGroupName}>${pattern.recursePattern()})";
-    int levelMinSize = pattern.minLenght(recurseLevel - 1);
+    int levelMinSize = pattern.minLength(recurseLevel - 1);
 
     while (levelMinSize < message.length) {
       final newSearch = pattern.computeLevel(recurseLevel);
@@ -92,7 +92,7 @@ abstract class Rule {
       if (regExp.hasMatch(message)) return true;
 
       recurseLevel++;
-      levelMinSize = pattern.minLenght(recurseLevel - 1);
+      levelMinSize = pattern.minLength(recurseLevel - 1);
     }
 
     return false;
@@ -106,7 +106,7 @@ class ValueRule extends Rule {
 
   RulePattern computePattern() => new RulePattern(value, []);
 
-  int minLenght() => 1;
+  int minLength() => 1;
 }
 
 class GroupRule extends Rule {
@@ -114,8 +114,8 @@ class GroupRule extends Rule {
 
   GroupRule(int id, this.ruleLinks) : super(id);
 
-  int minLenght() {
-    return ruleLinks.map((e) => (e.toList()..remove(id)).map((e) => Rule.cache[e].minLenght()).reduce((a, b) => a + b)).reduce(min);
+  int minLength() {
+    return ruleLinks.map((e) => (e.toList()..remove(id)).map((e) => Rule.cache[e].minLength()).reduce((a, b) => a + b)).reduce(min);
   }
 
   RulePattern computeGroup(List<int> ids) {
