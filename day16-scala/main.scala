@@ -29,7 +29,7 @@ object Factory {
 }
 
 object Analyser {
-  def findPositionCondidate(fields: ArrayBuffer[Field], values: ArrayBuffer[Vector[Int]]): Unit = {
+  def findPositionCandidate(fields: ArrayBuffer[Field], values: ArrayBuffer[Vector[Int]]): Unit = {
     val valueNumber = values.head.size
 
     fields.foreach(f => {
@@ -79,7 +79,7 @@ object Day16 extends App {
 
     val validValues = values.filter(x => x.forall(v => allValues.exists(r => r.isValid(v))))
 
-    Analyser.findPositionCondidate(fields, validValues)
+    Analyser.findPositionCandidate(fields, validValues)
     Analyser.consolidateFieldPosition(fields)
 
 
