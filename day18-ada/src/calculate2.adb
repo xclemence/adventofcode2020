@@ -4,7 +4,7 @@ package body Calculate2 is
    
    procedure Update_Result(Value: NaturalDouble;
                            Result: in out NaturalDouble;
-                           Operation: OpeationMethod) is
+                           Operation: OperationMethod) is
    begin
       if Result = -1 then
          Result := Value;
@@ -21,7 +21,7 @@ package body Calculate2 is
       Current_Element: Character;
       Result: NaturalDouble;
       Value_String : string(1..1);
-      Current_Operation: OpeationMethod;
+      Current_Operation: OperationMethod;
        
    begin
       
