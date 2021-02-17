@@ -15,7 +15,7 @@ play cups run  = runST $ do
 
     V.forM_ (V.fromList [1..run]) (\ i -> do
             moveCup_ mutable
-            let !tacer = traceRun i 1000
+            let !tracer = traceRun i 1000
             return ()
         )
 
