@@ -1,7 +1,7 @@
 # Advent of code 2020
 
 This repository contains solutions to [Advent of Code 2020](https://adventofcode.com/2020).
-To add more challenges, I solved each day with a specific language.
+I solved each day with a specific language (for fun and challenge).
 
 
 ## Languages
